@@ -4,6 +4,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 from loguru import logger
 
+import streamlit as st
+
 load_dotenv()
 
 BASE_DIR = Path(__file__).parent
@@ -22,9 +24,8 @@ RERANKER_MODEL = 'cross-encoder/ms-marco-MiniLM-L6-v2'
 LLM_MODEL = 'llama-3.3-70b-versatile'
 
 try:
-    import streamlit as st
-    GROQ_API_KEY = os.getenv('GROQ_API_KEY') or st.secrets.get('GROQ_API_KEY')
-except ImportError:
+    GROQ_API_KEY = os.getenv('GROQ_API_KEY') or st.secrets['GROQ_API_KEY']
+except (ImportError, KeyError):
     GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 RETRIEVAL_K = 10
