@@ -12,10 +12,7 @@ def create_rag_chain(vectorstore, bm25_retriever):
     llm = ChatGroq(model=LLM_MODEL, groq_api_key=GROQ_API_KEY, temperature=0.5)
 
     dense_retriever = vectorstore.as_retriever(search_kwargs={'k': RETRIEVAL_K})
-    retriever = EnsembleRetriever(
-        retrievers=[dense_retriever, bm25_retriever],
-        weights=[0.5, 0.5]
-    )
+    retriever = EnsembleRetriever(retrievers=[dense_retriever, bm25_retriever], weights=[0.5, 0.5])
     logger.info(f'Hybrid retrieval: dense + BM25, k={RETRIEVAL_K}')
 
     template = """Answer the question using only the information from the context below. If you cannot answer the question based on the context, say "I cannot find that information in the knowledge base."

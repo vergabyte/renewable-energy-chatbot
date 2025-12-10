@@ -26,7 +26,7 @@ This repository contains a Retrieval-Augmented Generation (RAG) chatbot from ren
 ## Quick Start
 1. **Create and activate a virtual environment (recommended).**
    ```bash
-   python -m venv .venv
+   python3 -m venv .venv
    source .venv/bin/activate
    ```
 2. **Install dependencies.**

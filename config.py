@@ -9,9 +9,11 @@ load_dotenv()
 BASE_DIR = Path(__file__).parent
 SCRAPED_DATA_FILE = BASE_DIR / 'data' / 'scraped_articles.json'
 CHROMA_DB_PATH = BASE_DIR / 'chroma_db'
+LOGS_DIR = BASE_DIR / 'logs'
 
 Path('logs').mkdir(exist_ok=True)
-logger.add('logs/app.log')
+LOGS_DIR.mkdir(exist_ok=True)
+logger.add(LOGS_DIR / 'app.log')
 
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200

@@ -4,7 +4,12 @@ import sys
 
 from config import CHROMA_DB_PATH, SCRAPED_DATA_FILE, logger
 from src.chatbot import create_rag_chain, format_sources, query_chatbot
-from src.embeddings import chunk_documents, create_bm25_retriever, create_vector_store, load_vector_store
+from src.embeddings import (
+    chunk_documents,
+    create_bm25_retriever,
+    create_vector_store,
+    load_vector_store,
+)
 
 
 def initialize_chatbot(force_rebuild=False):

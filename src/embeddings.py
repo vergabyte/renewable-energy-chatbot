@@ -10,16 +10,11 @@ from src.preprocessing import preprocess_text
 
 def chunk_documents(articles):
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=CHUNK_SIZE,
-        chunk_overlap=CHUNK_OVERLAP,
-        length_function=len
+        chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP, length_function=len
     )
 
     chunks = [
-        Document(
-            page_content=split,
-            metadata={'source': article['url']}
-        )
+        Document(page_content=split, metadata={'source': article['url']})
         for article in articles
         for split in splitter.split_text(preprocess_text(article['content']))
     ]
