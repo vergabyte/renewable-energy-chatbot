@@ -30,6 +30,9 @@ wheels/
 .env
 .env.local
 
+# Streamlit secrets
+.streamlit/secrets.toml
+
 # IDEs
 .vscode/
 .idea/
@@ -47,7 +50,6 @@ Thumbs.db
 # Database
 *.db
 *.sqlite3
-chroma_db/
 
 # Logs
 *.log
