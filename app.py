@@ -47,9 +47,7 @@ if prompt := st.chat_input('Ask about renewable energy'):
 
     with st.chat_message('assistant'):
         answer, source_docs = query_chatbot(
-            st.session_state.rag_chain,
-            st.session_state.retriever,
-            prompt
+            st.session_state.rag_chain, st.session_state.retriever, prompt
         )
 
         sources = format_sources(source_docs)
@@ -70,9 +68,6 @@ if prompt := st.chat_input('Ask about renewable energy'):
                 for i, source in enumerate(sources, 1):
                     st.markdown(f'{i}. [{source}]({source})')
 
-        st.session_state.messages.append({
-            'role': 'assistant',
-            'content': answer,
-            'sources': sources,
-            'chunks': chunks
-        })
+        st.session_state.messages.append(
+            {'role': 'assistant', 'content': answer, 'sources': sources, 'chunks': chunks}
+        )
