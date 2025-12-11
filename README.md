@@ -1,6 +1,6 @@
 # Renewable Energy Chat
 
-**Live Demo:** https://renewable-energy-chatbot-srptg5lgki7q4aag9grdae.streamlit.app/
+https://renewable-energy-chatbot-srptg5lgki7q4aag9grdae.streamlit.app/
 
 This repository contains a Retrieval-Augmented Generation (RAG) chatbot from renewable-energy corpus. The articles are already scraped and stored in `data/scraped_articles.json`. The project uses LangChain for orchestration, ChromaDB for dense retrieval, a BM25 retriever for lexical recall, and Groq's hosted LLM for responses.
 
